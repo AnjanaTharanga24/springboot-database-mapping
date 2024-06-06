@@ -1,9 +1,6 @@
 package com.example.backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -15,5 +12,7 @@ public class Dependent {
     private Long id;
     private String dependentName;
     private String dependentMobile;
-    
+
+    @ManyToOne
+    private Employee employee;
 }

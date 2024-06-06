@@ -24,4 +24,7 @@ public class Employee {
     @ManyToMany
     private List<Department> departmentList;
 
+    @OneToMany
+    private List<Dependent> dependentList;
+
 }
