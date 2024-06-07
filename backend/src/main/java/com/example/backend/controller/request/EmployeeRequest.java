@@ -1,30 +1,20 @@
-package com.example.backend.model;
+package com.example.backend.controller.request;
 
+import com.example.backend.model.Department;
+import com.example.backend.model.Dependent;
+import com.example.backend.model.Gender;
 import jakarta.persistence.*;
-import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.List;
 
-@Entity
-@Data
-public class Employee {
+public class EmployeeRequest {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String empName;
     private String empEmail;
     private String empMobile;
     private LocalDate DOB;
-
-    @Enumerated(value = EnumType.STRING)
     private Gender gender;
-
-    @ManyToMany(mappedBy = "employees")
     private List<Department> departments;
-
-    @OneToMany()
     private List<Dependent> dependentList;
-
 }

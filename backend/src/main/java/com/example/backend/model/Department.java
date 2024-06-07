@@ -16,6 +16,11 @@ public class Department {
     private String depName;
 
     @ManyToMany
-    private List<Employee> employeeList;
+    @JoinTable(
+            name = "department_employee",
+            joinColumns = @JoinColumn(name = "department_id"),
+            inverseJoinColumns = @JoinColumn(name = "employee_id")
+    )
+    private List<Employee> employees;
 
 }
