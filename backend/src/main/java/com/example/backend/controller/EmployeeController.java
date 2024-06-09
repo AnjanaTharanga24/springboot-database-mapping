@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class EmployeeController {
 
-       private EmployeeService employeeService;
+//       private EmployeeService employeeService;
 
        @PostMapping("/employees")
        public EmployeeResponse registerEmployee(@RequestBody EmployeeRequest employeeRequest){
-           return employeeService.registerEmployee(employeeRequest);
+           return null;
        }
 }
 

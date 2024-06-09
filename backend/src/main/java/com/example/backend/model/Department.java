@@ -19,12 +19,7 @@ public class Department {
     private String depId;
     private String depName;
 
-    @ManyToMany
-    @JoinTable(
-            name = "department_employee",
-            joinColumns = @JoinColumn(name = "department_id"),
-            inverseJoinColumns = @JoinColumn(name = "employee_id")
-    )
+    @OneToMany(mappedBy = "department")
     private List<Employee> employees;
 
 }

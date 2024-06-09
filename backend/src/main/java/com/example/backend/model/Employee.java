@@ -26,8 +26,8 @@ public class Employee {
     @Enumerated(value = EnumType.STRING)
     private Gender gender;
 
-    @ManyToMany(mappedBy = "employees")
-    private List<Department> departments;
+    @ManyToOne
+    private Department department;
 
     @OneToMany(mappedBy = "employee")
     private List<Dependent> dependentList;

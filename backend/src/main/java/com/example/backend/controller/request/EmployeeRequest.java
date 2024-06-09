@@ -21,6 +21,6 @@ public class EmployeeRequest {
     private String empMobile;
     private LocalDate DOB;
     private Gender gender;
-    private List<Department> departments;
+    private String departments;
     private List<Dependent> dependentList;
 }
