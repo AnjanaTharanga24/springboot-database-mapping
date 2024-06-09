@@ -1,35 +1,27 @@
-package com.example.backend.model;
+package com.example.backend.controller.response;
 
-import jakarta.persistence.*;
+import com.example.backend.model.Department;
+import com.example.backend.model.Dependent;
+import com.example.backend.model.Gender;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.List;
-
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Employee {
+@Builder
+public class EmployeeResponse {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String empName;
     private Integer empAge;
     private String empEmail;
     private String empMobile;
     private LocalDate DOB;
-
-    @Enumerated(value = EnumType.STRING)
     private Gender gender;
-
-    @ManyToOne
-    private Department department;
-
-    @OneToMany(mappedBy = "employee")
+    private List<Department> departments;
     private List<Dependent> dependentList;
-
 }
