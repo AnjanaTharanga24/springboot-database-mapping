@@ -19,7 +19,7 @@ public class Department {
     private String depId;
     private String depName;
 
-//    @OneToMany(mappedBy = "department")
-//    private List<Employee> employees;
+    @OneToMany(mappedBy = "department")
+    private List<Employee> employees;
 
 }
