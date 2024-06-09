@@ -33,7 +33,24 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setDOB(employeeRequest.getDOB());
         employee.setGender(employeeRequest.getGender());
 
-        return null;
+        Optional<Department> departmentOptional = departmentRepository.findByDepName(employeeRequest.getDepartment());
+        if (!departmentOptional.isPresent()){
+            return null;
+        }
+        Department foundDepartment = departmentOptional.get();
+        employee.setDepartment(foundDepartment);
+
+        Employee savedEmployee = employeeRepository.save(employee);
+
+        return EmployeeResponse.builder()
+                .empName(savedEmployee.getEmpName())
+                .empAge(savedEmployee.getEmpAge())
+                .empEmail(savedEmployee.getEmpEmail())
+                .empMobile(savedEmployee.getEmpMobile())
+                .DOB(savedEmployee.getDOB())
+                .gender(savedEmployee.getGender())
+                .departments(savedEmployee.getDepartment())
+                .build();
     }
 
     @Override
