@@ -22,6 +22,6 @@ public class EmployeeResponse {
     private String empMobile;
     private LocalDate DOB;
     private Gender gender;
-    private List<Department> departments;
+    private Department departments;
     private List<Dependent> dependentList;
 }
