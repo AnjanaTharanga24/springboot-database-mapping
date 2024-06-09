@@ -7,6 +7,7 @@ import com.example.backend.model.Department;
 import com.example.backend.model.Dependent;
 import com.example.backend.model.Employee;
 import com.example.backend.repository.DepartmentRepository;
+import com.example.backend.repository.DependentRepository;
 import com.example.backend.repository.EmployeeRepository;
 import com.example.backend.service.EmployeeService;
 import lombok.AllArgsConstructor;
@@ -22,6 +23,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     private DepartmentRepository departmentRepository;
     private EmployeeRepository employeeRepository;
+    private DependentRepository dependentRepository;
 
     @Override
     public EmployeeResponse registerEmployee(EmployeeRequest employeeRequest) {
@@ -42,6 +44,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         Employee savedEmployee = employeeRepository.save(employee);
 
+        List<Dependent> dependents = new ArrayList<>();
+        for (Dependent dependent : employeeRequest.getDependentList()){
+            dependent.setEmployee(employee);
+            dependents.add(dependent);
+            dependentRepository.save(dependent);
+        }
+        employee.setDependentList(dependents);
+
         return EmployeeResponse.builder()
                 .empName(savedEmployee.getEmpName())
                 .empAge(savedEmployee.getEmpAge())
@@ -50,6 +60,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .DOB(savedEmployee.getDOB())
                 .gender(savedEmployee.getGender())
                 .departments(savedEmployee.getDepartment())
+                .dependentList(savedEmployee.getDependentList())
                 .build();
     }
 
