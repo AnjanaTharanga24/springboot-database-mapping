@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../css/form.css'
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function Form() {
     const [currentStep, setCurrentStep] = React.useState(1);
+    const [birthDate, setBirthDate] = useState(null);
 
-    const handleNext = () =>{
+    const handleNext = () => {
         setCurrentStep(currentStep + 1)
     }
 
-    const handlePrev = () =>{
+    const handlePrev = () => {
         setCurrentStep(currentStep - 1)
     }
 
@@ -70,6 +73,18 @@ export default function Form() {
                                 id="exampleInputPassword1"
                                 placeholder="Enter Mobile"
                             />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="birthDate">Birth Date</label>
+                            <div className="mt-2">
+                                <DatePicker
+                                    id="birthDate"
+                                    selected={birthDate}
+                                    onChange={date => setBirthDate(date)}
+                                    className="form-control"
+                                    placeholderText="Select birth date"
+                                />
+                            </div>
                         </div>
                     </div>
                 );
@@ -213,8 +228,8 @@ export default function Form() {
 
                     {currentStep === 3 && (
                         <button type="submit" className="btn btn-primary mt-2">
-                        Submit
-                    </button>
+                            Submit
+                        </button>
                     )}
                 </div>
             </form>
