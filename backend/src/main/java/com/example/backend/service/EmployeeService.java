@@ -9,4 +9,6 @@ public interface EmployeeService {
 
        EmployeeResponse registerEmployee(EmployeeRequest employeeRequest);
        DepartmentResponse addDepartment(Long empId , Department department);
+
+       EmployeeResponse findEmployeeById(Long eId);
 }

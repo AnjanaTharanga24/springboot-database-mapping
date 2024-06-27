@@ -5,9 +5,7 @@ import com.example.backend.controller.response.EmployeeResponse;
 import com.example.backend.repository.EmployeeRepository;
 import com.example.backend.service.EmployeeService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
@@ -19,6 +17,11 @@ public class EmployeeController {
        public EmployeeResponse registerEmployee(@RequestBody EmployeeRequest employeeRequest){
 
            return employeeService.registerEmployee(employeeRequest);
+       }
+
+       @GetMapping("/employees/{employee-id}")
+       public EmployeeResponse employeeFIndById(@PathVariable("employee-id") Long eId){
+           return employeeService.findEmployeeById(eId);
        }
 }
 

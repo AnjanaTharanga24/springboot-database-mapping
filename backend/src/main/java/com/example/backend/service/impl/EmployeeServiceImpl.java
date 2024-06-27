@@ -69,4 +69,26 @@ public class EmployeeServiceImpl implements EmployeeService {
         return null;
     }
 
+    @Override
+    public EmployeeResponse findEmployeeById(Long eId) {
+        Optional<Employee> employeeOptional = employeeRepository.findById(eId);
+
+        if(!employeeOptional.isPresent()){
+            return null;
+        }
+
+        Employee foundEmployee = employeeOptional.get();
+        return EmployeeResponse.builder()
+                .empName(foundEmployee.getEmpName())
+                .empAge(foundEmployee.getEmpAge())
+                .empEmail(foundEmployee.getEmpEmail())
+                .empMobile(foundEmployee.getEmpMobile())
+                .DOB(foundEmployee.getDOB())
+                .gender(foundEmployee.getGender())
+                .departments(foundEmployee.getDepartment())
+                .dependentList(foundEmployee.getDependentList())
+                .build()
+                ;
+    }
+
 }
