@@ -46,29 +46,6 @@ export default function DependentFormRepeater() {
                     />
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor={`age-${form.id}`} className='lable-text'>Age</label>
-                    <input
-                        type="number"
-                        className="form-control"
-                        id={`age-${form.id}`}
-                        name="age"
-                        onChange={(e) => handleChange(e, form.id)}
-                        placeholder="Enter age"
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor={`address-${form.id}`} className='lable-text'>Address</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id={`address-${form.id}`}
-                        name="address"
-                        onChange={(e) => handleChange(e, form.id)}
-                        placeholder="Enter address"
-                    />
-                </div>
 
                 <div className="form-group">
                     <label htmlFor={`mobileNumber-${form.id}`} className='lable-text'>Mobile number</label>
@@ -79,30 +56,6 @@ export default function DependentFormRepeater() {
                         name="mobileNumber"
                         onChange={(e) => handleChange(e, form.id)}
                         placeholder="Enter mobile"
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor={`email-${form.id}`} className='lable-text'>Email address</label>
-                    <input
-                        type="email"
-                        className="form-control"
-                        id={`email-${form.id}`}
-                        name="email"
-                        onChange={(e) => handleChange(e, form.id)}
-                        placeholder="Enter email"
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor={`password-${form.id}`} className='lable-text'>Password</label>
-                    <input
-                        type="password"
-                        className="form-control"
-                        id={`password-${form.id}`}
-                        name="password"
-                        onChange={(e) => handleChange(e, form.id)}
-                        placeholder="Password"
                     />
                 </div>
 
