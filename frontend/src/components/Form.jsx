@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import '../css/form.css'
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import DependentFormRepeater from './DependentFormRepeater';
 
 export default function Form() {
     const [currentStep, setCurrentStep] = React.useState(1);
@@ -116,26 +117,6 @@ export default function Form() {
                             />
                         </div>
 
-                        <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Category</label>
-                            <input
-                                type="email"
-                                className="form-control mt-2"
-                                id="exampleInputPassword1"
-                                placeholder="Enter category"
-                            />
-                        </div>
-
-                        <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Position</label>
-                            <input
-                                type="password"
-                                className="form-control mt-2"
-                                id="exampleInputPassword1"
-                                placeholder="Enter Position"
-                            />
-                        </div>
-
                     </div>
                 );
             case 3:
@@ -144,7 +125,7 @@ export default function Form() {
                         <div>
                             <h2 className="text-center">Dependent Details</h2>
                         </div>
-
+{/* 
                         <div className="form-group">
                             <label htmlFor="exampleInputEmail1">Full Name</label>
                             <input
@@ -184,7 +165,9 @@ export default function Form() {
                                 id="exampleInputPassword1"
                                 placeholder="Enter Mobile"
                             />
-                        </div>
+                        </div> */}
+
+                        <DependentFormRepeater/>
                     </div>
                 );
             default:
