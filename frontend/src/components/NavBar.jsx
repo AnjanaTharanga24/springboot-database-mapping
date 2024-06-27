@@ -4,7 +4,7 @@ export default function NavBar() {
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-dark p-3">
-                <a className="navbar-brand text-white" href="#">
+                <a className="navbar-brand text-white fs-3" href="#">
                     Employee Management System
                 </a>
                 <button
