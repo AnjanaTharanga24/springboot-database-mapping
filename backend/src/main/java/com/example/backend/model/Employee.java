@@ -1,5 +1,6 @@
 package com.example.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -28,6 +29,7 @@ public class Employee {
     private Gender gender;
 
     @ManyToOne
+    @JsonManagedReference
     private Department department;
 
     @OneToMany(mappedBy = "employee")

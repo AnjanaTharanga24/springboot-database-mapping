@@ -11,4 +11,5 @@ public interface EmployeeService {
        DepartmentResponse addDepartment(Long empId , Department department);
 
        EmployeeResponse findEmployeeById(Long eId);
+
 }
